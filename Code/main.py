@@ -16,7 +16,7 @@ def low_level_fusion(data_dir, show_random_pcl=False, display_video=True,  save_
     imgs, pts, lbls, calbs = ut.load_data(data_dir)
 
     if save_video:
-        out_dir = os.path.join(data_dir, "output//videos")
+        out_dir = os.path.join(data_dir, "output/videos")
         if not os.path.exists(out_dir):
             os.makedirs(out_dir)
 
@@ -32,14 +32,14 @@ def low_level_fusion(data_dir, show_random_pcl=False, display_video=True,  save_
     print("-")
     print("Velo 2 Cam " +str(lidar2cam.V2C))
 
-    video_images = sorted(glob.glob(data_dir+"//test//video4//images/*.png"))
-    video_points = sorted(glob.glob(data_dir+"//test//video4//points/*.pcd"))
+    video_images = sorted(glob.glob(data_dir+"/test/video4/images/*.png"))
+    video_points = sorted(glob.glob(data_dir+"/test/video4/points/*.pcd"))
 
     result_video = []
 
-    weights = data_dir + "//model//yolov4//yolov4.weights"
-    config = data_dir + "//model//yolov4//yolov4.cfg"
-    names = data_dir + "//model//yolov4//coco.names"
+    weights = data_dir + "/model/yolov4/yolov4.weights"
+    config = data_dir + "/model/yolov4/yolov4.cfg"
+    names = data_dir + "/model/yolov4/coco.names"
 
     detector = yd.Detector(0.4)
     detector.load_model(weights, config, names)
@@ -75,13 +75,13 @@ def mid_level_fusion(data_dir, index=0, display_image=True, save_image=False):
     imgs, pts, labels, calibs = ut.load_data(data_dir)
 
     if save_image:
-        out_dir = os.path.join(data_dir, "output//images")
+        out_dir = os.path.join(data_dir, "output/images")
         if not os.path.exists(out_dir):
             os.makedirs(out_dir)
 
-    weights = data_dir + "//model//yolov4//yolov4.weights"
-    config = data_dir + "//model//yolov4//yolov4.cfg"
-    names = data_dir + "//model//yolov4//coco.names"
+    weights = data_dir + "/model/yolov4/yolov4.weights"
+    config = data_dir + "/model/yolov4/yolov4.cfg"
+    names = data_dir + "/model/yolov4/coco.names"
 
     detector = yd.Detector(0.4)
     detector.load_model(weights, config, names)
@@ -140,6 +140,6 @@ def mid_level_fusion(data_dir, index=0, display_image=True, save_image=False):
 
 
 if __name__ == "__main__":
-    data_dir = "..//Data//"
-    # low_level_fusion(data_dir, show_random_pcl=False, display_video=True, save_video=False)
-    mid_level_fusion(data_dir, index=0, display_image=True, save_image=False)
+    data_dir = os.getcwd() + "/Data"
+    low_level_fusion(data_dir, show_random_pcl=False, display_video=True, save_video=False)
+    # mid_level_fusion(data_dir, index=0, display_image=True, save_image=False)
