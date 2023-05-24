@@ -32,8 +32,8 @@ def low_level_fusion(data_dir, show_random_pcl=False, display_video=True,  save_
     print("-")
     print("Velo 2 Cam " +str(lidar2cam.V2C))
 
-    video_images = sorted(glob.glob(data_dir+"/test/video4/images/*.png"))
-    video_points = sorted(glob.glob(data_dir+"/test/video4/points/*.pcd"))
+    video_images = sorted(glob.glob(data_dir+"/images/*.png"))
+    video_points = sorted(glob.glob(data_dir+"/points/*.pcd"))
 
     result_video = []
 
@@ -45,7 +45,7 @@ def low_level_fusion(data_dir, show_random_pcl=False, display_video=True,  save_
     detector.load_model(weights, config, names)
 
     image = cv2.imread(video_images[0])
-    
+
     if display_video:
         cv2.namedWindow("fused_result", cv2.WINDOW_KEEPRATIO)
 
