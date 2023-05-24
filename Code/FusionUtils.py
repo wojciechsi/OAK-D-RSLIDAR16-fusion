@@ -66,7 +66,7 @@ def get_best_distance(distances, technique="closest"):
 
 def lidar_camera_fusion(pts_3D, pts_2D, detections, image):
     img_bis = image.copy()
-    pred_bboxes = detections[:, 1]
+    pred_bboxes = detections[: 1]
     cmap = plt.cm.get_cmap("hsv", 256)
     cmap = np.array([cmap(i) for i in range(256)])[:, :3] * 255
     distances = []
