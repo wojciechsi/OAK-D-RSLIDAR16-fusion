@@ -5,11 +5,12 @@ import Fusion as fu
 
 
 def load_data(data_dir):
-    image_files = sorted(glob.glob(data_dir+"//images//*.png"))
-    point_files = sorted(glob.glob(data_dir+"//points//*.pcd"))
-    label_files = sorted(glob.glob(data_dir+"//labels//*.txt"))
-    calib_files = sorted(glob.glob(data_dir+"//calibs//*.txt"))
-
+    print(data_dir)
+    image_files = sorted(glob.glob(data_dir+"/images/*.png"))
+    point_files = sorted(glob.glob(data_dir+"/points/*.pcd"))
+    label_files = sorted(glob.glob(data_dir+"/labels/*.txt"))
+    calib_files = sorted(glob.glob(data_dir+"/calibs/*.txt"))
+    
     return image_files, point_files, label_files, calib_files
 
 

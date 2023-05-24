@@ -45,7 +45,7 @@ def low_level_fusion(data_dir, show_random_pcl=False, display_video=True,  save_
     detector.load_model(weights, config, names)
 
     image = cv2.imread(video_images[0])
-
+    
     if display_video:
         cv2.namedWindow("fused_result", cv2.WINDOW_KEEPRATIO)
 
