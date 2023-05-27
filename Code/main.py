@@ -140,6 +140,6 @@ def mid_level_fusion(data_dir, index=0, display_image=True, save_image=False):
 
 
 if __name__ == "__main__":
-    data_dir = os.getcwd() + "/Data"
+    data_dir = os.getcwd()[0:os.getcwd().rfind('/')] + "/Data"
     low_level_fusion(data_dir, show_random_pcl=False, display_video=True, save_video=False)
     # mid_level_fusion(data_dir, index=0, display_image=True, save_image=False)
