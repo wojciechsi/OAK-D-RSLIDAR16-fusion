@@ -22,7 +22,7 @@ def build_fused_object(list_of_2d_objects, list_of_3d_objects, matches, image):
 
 
 def rectContains(rect, pt, shrink_factor=0.0):
-
+    rect = rect [1] ##mb
     x_min = rect[0]
     y_min = rect[1]
     width = rect[2]
@@ -83,6 +83,7 @@ def lidar_camera_fusion(pts_3D, pts_2D, detections, image):
 
         h, w, _ = img_bis.shape
         if len(distances) > 2:
+            box = box [1]
             distances = filter_outliers(distances)
             best_distance = get_best_distance(distances, technique="average")
             cv2.putText(img_bis, '{0:.2f} m'.format(best_distance), (int(box[0] * w), int(box[1] * h)),
