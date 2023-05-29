@@ -10,6 +10,7 @@ def load_data(data_dir):
     point_files = sorted(glob.glob(data_dir+"/points/*.pcd"))
     label_files = sorted(glob.glob(data_dir+"/labels/*.txt"))
     calib_files = sorted(glob.glob(data_dir+"/calibs/*.txt"))
+    print(calib_files)
     
     return image_files, point_files, label_files, calib_files
 

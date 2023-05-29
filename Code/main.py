@@ -25,6 +25,7 @@ def low_level_fusion(data_dir, show_random_pcl=False, display_video=True,  save_
         pcd = o3d.io.read_point_cloud(pts[idx])
         o3d.visualization.draw_geometries([pcd])
 
+    print(calbs)
     lidar2cam = l2c.LiDAR2Camera(calbs[0])
     print("P :"+str(lidar2cam.P))
     print("-")
@@ -140,6 +141,6 @@ def mid_level_fusion(data_dir, index=0, display_image=True, save_image=False):
 
 
 if __name__ == "__main__":
-    data_dir = os.getcwd()[0:os.getcwd().rfind('/')] + "/Data"
-    low_level_fusion(data_dir, show_random_pcl=False, display_video=True, save_video=False)
+    data_dir = os.getcwd() + "/Data"
+    low_level_fusion(data_dir, show_random_pcl=False, display_video=True, save_video=True)
     # mid_level_fusion(data_dir, index=0, display_image=True, save_image=False)
